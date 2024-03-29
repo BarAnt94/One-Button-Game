@@ -5,7 +5,7 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     public Rigidbody rb;
-    [SerializeField] private float m_jumpForce = 20;
+    [SerializeField] private float m_jumpForce = 10;
     public bool IsJumping = false;
     // Start is called before the first frame update
     void Start()
