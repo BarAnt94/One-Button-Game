@@ -11,7 +11,6 @@ public class Camera_Position : MonoBehaviour
     private float playpos = 0f;
 
     public float MaxY = 0f;
-    public float MinY = 0f;
     public float MaxX = 0f;
     public float MinX = 0f;
     void Start()
@@ -28,10 +27,6 @@ public class Camera_Position : MonoBehaviour
         if (playpos > Camypos + MaxY)
         {
             transform.position = new Vector3(transform.position.x, playpos - MaxY, transform.position.z);
-        }
-        else if (playpos < Camypos - MinY)
-        {
-            transform.position = new Vector3(transform.position.x, playpos + MinY, transform.position.z);
         }
         if (playxpos > Camxpos+ MaxX)
         {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
-    public float moveSpeed = 2f; // Vitesse de déplacement de la plateforme
-    public float moveDistance = 4f; // Distance totale de déplacement
+    public float moveSpeed = 2f; // Vitesse de dï¿½placement de la plateforme
+    public float moveDistance = 4f; // Distance totale de dï¿½placement
 
     private Vector3 startPos;
     private bool movingRight = true;
@@ -26,10 +26,27 @@ public class PlatformMovement : MonoBehaviour
             transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
         }
 
-        // Vérifie si la plateforme a parcouru sa distance maximale
+        // Vï¿½rifie si la plateforme a parcouru sa distance maximale
         if (Mathf.Abs(transform.position.x - startPos.x) >= moveDistance)
         {
             movingRight = !movingRight;
         }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+       if(other.CompareTag("Player"))
+       {
+         other.transform.SetParent(this.transform);
+       }
+       
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+       {
+         other.transform.SetParent(null);
+       }
+        
+       
     }
 }
