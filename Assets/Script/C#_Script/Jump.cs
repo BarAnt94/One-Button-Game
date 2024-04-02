@@ -7,10 +7,11 @@ public class Jump : MonoBehaviour
     public Rigidbody rb;
     [SerializeField] private float m_jumpForce = 10;
     public bool IsJumping = false;
+   
     // Start is called before the first frame update
     void Start()
     {
-        rb.AddForce(new Vector3(5, 0, 0), ForceMode.Force);
+        rb.AddForce(new Vector3(0, 0, 0), ForceMode.Force);
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class Jump : MonoBehaviour
         {
             rb.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
             IsJumping = true;
+           
         }
     }
     void OnCollisionEnter(Collision collision)
