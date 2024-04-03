@@ -8,7 +8,14 @@ public class Death : MonoBehaviour
 {
     public Canvas reloadCanvas;
     public Button reloadButton;
+    public Button reloadButton_Menu;
     public GameObject Player;
+    public AudioSource audioSource;
+
+    private void Awake()
+    {
+        AudioSource audioSource = FindObjectOfType<AudioSource>();
+    }
     
     private void OnTriggerEnter(Collider other)
     {
@@ -22,8 +29,14 @@ public class Death : MonoBehaviour
 
             // Activer le bouton de rechargement
             reloadButton.onClick.AddListener(ReloadLevel);
-
+            reloadButton_Menu.onClick.AddListener(Reload_Menu);
             Player.SetActive(false);
+            
+            if (audioSource != null)
+            {
+                audioSource.Stop();
+            }
+            
         
         }
     }
@@ -32,5 +45,9 @@ public class Death : MonoBehaviour
     {
         // Recharger le niveau actuel
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }   
+    } 
+    private void Reload_Menu() 
+    {
+        SceneManager.LoadScene(0);
+    } 
 }
