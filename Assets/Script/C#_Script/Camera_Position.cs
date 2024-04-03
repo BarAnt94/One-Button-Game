@@ -13,6 +13,7 @@ public class Camera_Position : MonoBehaviour
     public float MaxY = 0f;
     public float MaxX = 0f;
     public float MinX = 0f;
+    public float MinY = 0f;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +32,10 @@ public class Camera_Position : MonoBehaviour
         if (playxpos > Camxpos+ MaxX)
         {
             transform.position = new Vector3(playxpos-MaxX, transform.position.y, transform.position.z);
+        }
+        if (playpos < Camypos + MinY)
+        {
+            transform.position = new Vector3(transform.position.x, playpos + MinY, transform.position.z);
         }
         else if (playxpos < Camxpos - MinX)
         {

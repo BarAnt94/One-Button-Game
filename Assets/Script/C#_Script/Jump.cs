@@ -20,8 +20,7 @@ public class Jump : MonoBehaviour
         if (Input.GetButtonDown("Jump")&& !IsJumping)
         {
             rb.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
-            IsJumping = true;
-           
+            IsJumping = true;  
         }
     }
     void OnCollisionEnter(Collision collision)

@@ -10,7 +10,6 @@ public class Death : MonoBehaviour
     public Button reloadButton;
     public GameObject Player;
     
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
