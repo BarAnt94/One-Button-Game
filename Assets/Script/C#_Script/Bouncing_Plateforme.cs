@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bouncing_Plateforme : MonoBehaviour
@@ -9,7 +8,7 @@ public class Bouncing_Plateforme : MonoBehaviour
     public Vector3 Direction;
     private void OnCollisionEnter(Collision collision)
     {
-        // Vérifie si l'objet entrant est le joueur
+        // Vï¿½rifie si l'objet entrant est le joueur
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
